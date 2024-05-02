@@ -1,0 +1,26 @@
+{   
+    "countries":[
+        {
+            "name": "USA"
+        }
+    ],
+    "timezones": [
+        {
+            "name": "CST"
+        },
+        {
+            "name": "EST"
+        },
+        {
+            "name": "PST"
+        }
+    ],
+    "status": [
+        {
+            "name": "pending"
+        },
+        {
+            "name": "approved"
+        }
+    ]  
+}

@@ -1,0 +1,106 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model events {
+  event_id   Int   @id @default(autoincrement())
+  event_name  String   @db.VarChar(100) 
+  event_start_date   String   @db.VarChar(50) @default("")
+  event_end_date   String   @db.VarChar(50) @default("")
+  event_location    String   @db.VarChar(100) @default("")
+  event_timezone   String   @db.VarChar(50) @default("")
+  event_address1   String   @db.VarChar(200) @default("")
+  event_address2   String   @db.VarChar(200) @default("") 
+  event_country   String   @db.VarChar(50) @default("")
+  event_state   String   @db.VarChar(50) @default("")
+  event_zip   String   @db.VarChar(50) @default("")
+  event_description   String  @db.VarChar(1000) @default("")
+  event_banner  Json  
+  event_thumbnail   Json  
+  event_status String   @default("scheduled")
+  created_at  DateTime @default(now())
+  updated_at  DateTime @default(now())
+}
+
+model attendees {
+  attendee_id   Int   @id @default(autoincrement())
+  first_name  String   @db.VarChar(100) 
+  last_name   String   @db.VarChar(100) @default("")
+  email   String   @db.VarChar(100) @default("")
+  company_name    String   @db.VarChar(100) @default("")
+  title   String   @db.VarChar(100) @default("")
+  address1   String   @db.VarChar(200) @default("")
+  address2   String   @db.VarChar(200) @default("") 
+  country   String   @db.VarChar(50) @default("")
+  state   String   @db.VarChar(50) @default("")
+  zip   String   @db.VarChar(50) @default("")
+  phone   String  @db.VarChar(20) @default("")
+  profile_photo Json
+  banner   Json   
+  status String   @default("pending") 
+  created_at  DateTime @default(now())
+  updated_at  DateTime @default(now())
+}
+
+model sponsors {
+  sponsor_id   Int   @id @default(autoincrement())
+  contact_title   String   @db.VarChar(100)
+  company_name    String   @db.VarChar(100) @default("")
+  contact_first_name  String   @db.VarChar(100) @default("")
+  contact_last_name   String   @db.VarChar(100) @default("")
+  contact_email   String   @db.VarChar(100) @default("")
+  contact_phone   String  @db.VarChar(20) @default("")  
+  address1   String   @db.VarChar(200) @default("")
+  address2   String   @db.VarChar(200) @default("") 
+  country   String   @db.VarChar(50) @default("")
+  state   String   @db.VarChar(50) @default("")
+  zip   String   @db.VarChar(50) @default("")
+  logo  Json
+  banner   Json   
+  status String   @default("pending")  
+  created_at  DateTime @default(now())
+  updated_at  DateTime @default(now())
+}
+
+model users {
+  user_id   Int   @id @default(autoincrement())
+  user_name    String   @db.VarChar(50)
+  password    String   @db.VarChar(200) 
+  email  String   @db.VarChar(100)  @unique
+  first_name   String   @db.VarChar(100)
+  last_name   String   @db.VarChar(100)
+  created_at  DateTime @default(now())
+  updated_at  DateTime @default(now())
+}
+
+model venues {
+  venue_id   Int   @id @default(autoincrement())
+  venue_name   String   @db.VarChar(100) 
+  company_name    String   @db.VarChar(100) @default("")
+  contact_first_name  String   @db.VarChar(100) @default("")
+  contact_last_name   String   @db.VarChar(100) @default("")
+  contact_email   String   @db.VarChar(100) @default("")
+  contact_phone   String  @db.VarChar(20) @default("")
+  address1   String   @db.VarChar(200) @default("")
+  address2   String   @db.VarChar(200) @default("") 
+  country   String   @db.VarChar(50) @default("")
+  state   String   @db.VarChar(50) @default("")
+  zip   String   @db.VarChar(50) @default("")
+  logo  Json
+  banner  Json 
+  status String   @default("pending")  
+  created_at  DateTime @default(now())
+  updated_at  DateTime @default(now())
+}

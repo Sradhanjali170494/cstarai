@@ -1,0 +1,334 @@
+# Welcome to GraphiQL
+#
+# GraphiQL is an in-browser tool for writing, validating, and
+# testing GraphQL queries.
+#
+# Type queries into this side of the screen, and you will see intelligent
+# typeaheads aware of the current GraphQL type schema and live syntax and
+# validation errors highlighted within the text.
+#
+# GraphQL queries typically start with a "{" character. Lines that start
+# with a # are ignored.
+#
+# An example GraphQL query might look like:
+#
+#     {
+#       field(arg: "value") {
+#         subField
+#       }
+#     }
+#
+# Keyboard shortcuts:
+#
+#  Prettify Query:  Shift-Ctrl-P (or press the prettify button above)
+#
+#     Merge Query:  Shift-Ctrl-M (or press the merge button above)
+#
+#       Run Query:  Ctrl-Enter (or press the play button above)
+#
+#   Auto Complete:  Ctrl-Space (or just start typing)
+#
+
+# query{   
+  
+#   getAllEvents(search: "global", limit: 10, offset: 0) {
+#     events {
+#       event_id
+#       event_name
+#     }
+#     totalCount
+#   }
+  
+  # getUser (user_id:"9") {
+  #   user_id
+  # }
+
+  # getEvent (event_id:2) {
+  # 	event_id
+  #   event_timezone
+  #   event_banner
+  #   event_thumbnail
+  # } 
+  
+#   getAllAttendees(search: "", limit: 10, offset: 0) {
+#     attendees {
+#       attendee_id
+#     }
+#     totalCount
+#   }
+
+#   getAttendee (attendee_id:27) {
+#   	attendee_id
+#   } 
+  
+  #   getAllSponsors(search: "", limit: 10, offset: 0) {
+  #   sponsors {
+  #        sponsor_id, company_name, contact_title, contact_first_name, contact_last_name, contact_email, contact_phone, 
+  #       address1, address2, country, state, zip, status, logo, banner
+  #   }
+  #   totalCount
+  # }
+
+  # getSponsor(sponsor_id:3) {
+  # 	 sponsor_id, company_name, contact_title, contact_first_name, contact_last_name, contact_email, contact_phone, 
+  #       address1, address2, country, state, zip, status, logo, banner
+  # } 
+  
+  # getAllVenues(search: "", limit: 10, offset: 0) {
+  #   venues {
+  #       venue_id
+  #   }
+  #   totalCount
+  # }
+
+  # getVenue(venue_id:2) {
+  # 	venue_id
+  # } 
+ # }
+
+ mutation {
+  
+ #   login ( input:
+ #     {
+ #     email:"lalith333@example.com",
+ #     password:"1234",
+ #   }
+ #   ) {
+ #     user {
+ #     user_id
+ #       user_name
+ #   }
+ #     sessionId
+ #   }
+   
+   
+   
+     createUser (input: 
+     {   
+       user_name: "demo",
+       email: "demo@example.com",
+       password: "demo",
+       first_name: "demo",
+       last_name: "demo"
+     }
+   ) {
+     user_id, user_name,email,first_name,last_name
+    }
+   
+   # deleteUser (user_id:2) {
+   #   user_id
+   # }
+   
+ #       updateUser (input: 
+ #     {   
+ #       user_id:"9"
+ #       user_name: "lalith2224",
+ #       email: "lalith333@example.com",
+ #       password:"",
+ #       first_name: "lalith",
+ #       last_name: "kumar"
+ #     }
+ #   ) {
+ #     user_id, user_name,email,first_name,last_name
+ #    }
+   
+   # createEvent (input: 
+   #   {   
+   #     event_name: "Global Science Forum1",
+   #     event_start_date: "",
+   #     event_end_date: "",
+   #     event_location: "",
+   #     event_timezone: "",
+   #     event_address1: "",
+   #     event_address2: "",
+   #     event_country: "",
+   #     event_state: "",
+   #     event_zip: "",
+   #     event_description: "",      
+   #     event_banner:"",
+   #     event_thumbnail:"",
+   #   }
+   # ) {
+   #   event_id,
+   #  event_name
+   #   event_zip
+   #  }
+   
+   #   updateEvent (input: 
+   #   {   
+   #     event_id:"2",
+   #     event_name: "Global Women Forum",
+   #     event_start_date: "07/08/2024",
+   #     event_end_date: "07/11/2024",
+   #     event_location: "USAs",
+   #     event_timezone: "CSTs",
+   #     event_address1: "1117 Hidden Ridges",
+   #     event_address2: "Apt 1061s",
+   #     event_country: "Dallass",
+   #     event_state: "Texass",
+   #     event_zip: "750386",
+   #     event_description: "dWelcome to the Global Women Forum, where women leaders from around the world come together to share their experiences, promote solutions, and empower each other in the face of the challenges women face on a daily basis. This platform is designed to be a safe space for open and honest dialogue, where we can address issues such as gender inequality, workplace discrimination, and access to education and healthcare.",
+   #     event_banner:"dffdgfdff",
+   #     event_thumbnail:"dffdgdfsfs",
+   #   }
+   # ) {
+   #   event_id,
+   # event_name,
+   #   event_zip
+   #  }
+ 
+   # deleteEvent (event_id:3) {
+   #   event_id
+   # }
+   
+     
+   # createAttendee (input: 
+   #   {   
+   #     first_name:"lalith2",
+   #     last_name: "kumar2",
+   #     email: "lalith2@example.com"
+   #     company_name: "castco"
+   #     title: "castco corp"
+   #     address1: "1117 Hidden Ridge"
+   #     address2: "Apt 1022"
+   #     country: "USA"
+   #     state: "Texas"
+   #     zip: "75038"
+   #     phone: "7894561230"
+   #     profile_photo: "https://cstarglobal.swipepages.media/2023/11/6518c467d86ee4001190b52e/david-zechman-profile2-300.webp"
+   #     banner: "https://cstarglobal.swipepages.media/2023/11/6518c467d86ee4001190b52e/depositphotos-bgremover_219684390_l-1000.webp"
+   #   }
+   # ) {
+   #   attendee_id,
+   #  first_name,
+   #   last_name
+   #  }
+   
+   
+   
+  # updateAttendee (input: 
+  #    {   
+  #      attendee_id:"15"
+  #      first_name:"lalithdgf",
+  #      last_name: "kumarsfd",
+  #      email: "lalith2@example.com"
+  #      company_name: "walmart2"
+  #      title: "walmart corp2"
+  #      address1: "1117 Hidden Ridge2"
+  #      address2: "Apt 1023"
+  #      country: "USA"
+  #      state: "Texas"
+  #      zip: "75038"
+  #      phone: "7894561230"
+  #      profile_photo: "https://cstarglobal.swipepages.media/2023/11/6518c467d86ee4001190b52e/david-zechman-profile2-300.webp"
+  #      banner: "https://cstarglobal.swipepages.media/2023/11/6518c467d86ee4001190b52e/depositphotos-bgremover_219684390_l-1000.webp"
+  #    }
+  #  ) {
+  #    attendee_id,
+  #   first_name,
+  #    last_name
+  #   }
+   
+ #   deleteAttendee (attendee_id:1) {
+ #     attendee_id
+ #   }
+   
+       
+ #   createSponsor(input: 
+ #     {   
+  #     company_name:"ecorfy inc",
+ #     contact_title:"mr",
+ #       contact_first_name:"lalith2",
+ #       contact_last_name: "kumar2",
+ #       contact_email: "lalith2@example.com"
+ #       contact_phone: "7894561230"
+ #       address1: "1117 Hidden Ridge"
+ #       address2: "Apt 1022"
+ #       country: "USA"
+ #       state: "Texas"
+ #       zip: "75038",    
+ #       status:"pending", 
+ #       logo: "https://cstarglobal.swipepages.media/2023/11/6518c467d86ee4001190b52e/david-zechman-profile2-300.webp"
+ #       banner: "https://cstarglobal.swipepages.media/2023/11/6518c467d86ee4001190b52e/depositphotos-bgremover_219684390_l-1000.webp"
+ #     }
+ #   ) {
+ #     sponsor_id,
+ #    contact_first_name,
+ #     contact_last_name
+ #    }
+   
+   #   updateSponsor(input: 
+   #   {   
+   #     sponsor_id:"1",
+   #     company_name:"ecorfy inc",
+   #     contact_title:"mr",
+   #     contact_first_name:"lalith",
+   #     contact_last_name: "kumar",
+   #     contact_email: "lalith@example.com"
+   #     contact_phone: "7894561232"
+   #     address1: "1117 Hidden Ridge"
+   #     address2: "Apt 1022"
+   #     country: "USA"
+   #     state: "Texas"
+   #     zip: "75038",    
+   #     status:"pending", 
+   #     logo: "https://cstarglobal.swipepages.media/2023/11/6518c467d86ee4001190b52e/david-zechman-profile2-300.webp"
+   #     banner: "https://cstarglobal.swipepages.media/2023/11/6518c467d86ee4001190b52e/depositphotos-bgremover_219684390_l-1000.webp"
+   #   }
+   # ) {
+   #   sponsor_id,
+   #  contact_first_name,
+   #   contact_last_name
+   #  }
+   
+   
+   #   createVenue(input: 
+   #   {   
+   #     venue_name:"ddd",
+   #     company_name:"ecorfy inc",
+   #     contact_first_name:"lalith2",
+   #     contact_last_name: "kumar2",
+   #     contact_email: "lalith2@example.com"
+   #     contact_phone: "7894561230"
+   #     address1: "1117 Hidden Ridge"
+   #     address2: "Apt 1022"
+   #     country: "USA"
+   #     state: "Texas"
+   #     zip: "75038",    
+   #     status:"pending", 
+   #     logo: "https://cstarglobal.swipepages.media/2023/11/6518c467d86ee4001190b52e/david-zechman-profile2-300.webp"
+   #     banner: "https://cstarglobal.swipepages.media/2023/11/6518c467d86ee4001190b52e/depositphotos-bgremover_219684390_l-1000.webp"
+   #   }
+   # ) {
+   #   venue_id,
+   #  contact_first_name,
+   #   contact_last_name
+   #  }
+   
+     
+   #   updateVenue(input: 
+   #   {   
+   #     venue_id:"1",
+   #     venue_name:"ddd",
+   #     company_name:"ecorfy inc",
+   #     contact_first_name:"lalith",
+   #     contact_last_name: "kumar",
+   #     contact_email: "lalith2@example.com"
+   #     contact_phone: "7894561230"
+   #     address1: "1117 Hidden Ridge"
+   #     address2: "Apt 1022"
+   #     country: "USA"
+   #     state: "Texas"
+   #     zip: "75038",    
+   #     status:"pending", 
+   #     logo: "https://cstarglobal.swipepages.media/2023/11/6518c467d86ee4001190b52e/david-zechman-profile2-300.webp"
+   #     banner: "https://cstarglobal.swipepages.media/2023/11/6518c467d86ee4001190b52e/depositphotos-bgremover_219684390_l-1000.webp"
+   #   }
+   # ) {
+   #   venue_id,
+   #  contact_first_name,
+   #   contact_last_name
+   #  }
+   
+  }
+ 
