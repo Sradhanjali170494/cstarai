@@ -141,6 +141,8 @@ export default function Page() {
                         <View style={{ flex: 4 }}>
                             <Searchbar
                                 style={styles.searchBtn}
+                                iconColor="#fff"
+                                placeholderTextColor="#fff"
                                 placeholder="Search"
                                 value={search}
                                 onChangeText={(text) => searchData(text)}
